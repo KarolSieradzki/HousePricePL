@@ -30,7 +30,7 @@ ALL_FEATURES = {
 }
 
 
-def cluster_location_for_input(latitude, longitude, csv_path="../2_clean_data/results/otodom_houses_cleaned.csv", eps=0.1, min_samples=5):
+def cluster_location_for_input(latitude, longitude, csv_path="2_clean_data/results/otodom_houses_cleaned.csv", eps=0.1, min_samples=5):
    
     df = pd.read_csv(csv_path, delimiter=";")
     existing_coordinates = df[["Latitude", "Longitude"]].dropna().to_numpy()

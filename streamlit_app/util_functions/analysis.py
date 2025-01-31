@@ -19,7 +19,7 @@ def display_data_analysis():
         )
     )
     
-    file_path = '../2_clean_data/results/otodom_houses_cleaned.csv'
+    file_path = '2_clean_data/results/otodom_houses_cleaned.csv'
     df = pd.read_csv(file_path, delimiter=';')
     
     for col in df.columns:

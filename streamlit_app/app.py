@@ -13,7 +13,7 @@ page = st.sidebar.radio(
     ("Predykcja ceny", "Statystyki trenowania modelu", "Statystyki danych wejściowych")
 )
 
-def get_available_models(base_dir="../3_train/results"):
+def get_available_models(base_dir="3_train/results"):
     available_models = {}
     for folder in os.listdir(base_dir):
         model_dir = os.path.join(base_dir, folder, "models")
@@ -40,15 +40,15 @@ def get_mae_from_results(results_path, model_name):
 
 def display_training_stats():
     st.header("📊 Statystyki trenowania modelu")
-    with open("../3_train/best_results/results.json", 'r') as file:
+    with open("3_train/best_results/results.json", 'r') as file:
         results = json.load(file)
     
     st.write("### Wyniki modeli:")
     st.json(results)
     st.write("### Porównanie modeli:")
-    st.image("../3_train/best_results/actual_vs_predicted.png", caption="Rzeczywiste vs Przewidywane ceny", use_container_width=True)
-    st.image("../3_train/best_results/mae_comparison.png", caption="Porównanie MAE", use_container_width=True)
-    st.image("../3_train/best_results/rmse_comparison.png", caption="Porównanie RMSE", use_container_width=True)
+    st.image("3_train/best_results/actual_vs_predicted.png", caption="Rzeczywiste vs Przewidywane ceny", use_container_width=True)
+    st.image("3_train/best_results/mae_comparison.png", caption="Porównanie MAE", use_container_width=True)
+    st.image("3_train/best_results/rmse_comparison.png", caption="Porównanie RMSE", use_container_width=True)
 
 
 
@@ -60,9 +60,9 @@ if page == "Predykcja ceny":
 
     models_dict = get_available_models()
     default_model = {
-        "model_path": "../3_train/best_results/HistGradientBoosting.pkl",
-        "scaler_path": "../3_train/best_results/scaler.pkl",
-        "results_path": "../3_train/best_results/results.json"
+        "model_path": "3_train/best_results/HistGradientBoosting.pkl",
+        "scaler_path": "3_train/best_results/scaler.pkl",
+        "results_path": "3_train/best_results/results.json"
     }
 
     selected_model_key = st.sidebar.selectbox(

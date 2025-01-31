@@ -2,7 +2,7 @@ import streamlit as st
 import json
 
 def get_model_scores(model_name):
-    with open("../3_train/best_results/results.json", "r") as f:
+    with open("3_train/best_results/results.json", "r") as f:
         model_results = json.load(f)
     
     for result in model_results:

@@ -131,8 +131,8 @@ To run this project, you will need:
 
 4. **Run the Streamlit App:**
    ```bash
-   cd ../streamlit_app
-   streamlit run app.py
+   cd ../
+   streamlit run streamlit_app/app.py
    ```
 
 ## **Dashboard Overview:**
