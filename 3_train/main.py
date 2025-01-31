@@ -115,6 +115,7 @@ shutil.copy(
 # plot RMSE comparison
 plt.figure(figsize=(10, 15))
 sns.barplot(x="Model", y="RMSE", data=pd.DataFrame(results), palette="coolwarm")
+plt.yscale("log")
 plt.xticks(rotation=45, ha="right")
 plt.title("Model Comparison - RMSE")
 save_plot(plt, os.path.join(experiment_folder, "rmse_comparison.png"))
@@ -126,6 +127,7 @@ shutil.copy(
 # plot MAE comparison
 plt.figure(figsize=(10, 15))
 sns.barplot(x="Model", y="MAE", data=pd.DataFrame(results), palette="coolwarm")
+plt.yscale("log")
 plt.xticks(rotation=45, ha="right")
 plt.title("Model Comparison - MAE")
 save_plot(plt, os.path.join(experiment_folder, "mae_comparison.png"))
