@@ -27,7 +27,7 @@ def create_experiment_folder(base_folder="results"):
     return experiment_folder
 
 def save_plot(plt, path):
-    plt.savefig(path, format='png', dpi=300)  # Wymuszenie PNG i wysokiej jakości obrazu
+    plt.savefig(path, format='png', dpi=300)
     plt.close()
 
 
