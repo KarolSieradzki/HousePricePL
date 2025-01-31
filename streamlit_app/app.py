@@ -30,18 +30,6 @@ def display_training_stats():
     st.image("../3_train/best_results/rmse_comparison.png", caption="Porównanie RMSE", use_container_width=True)
    
 
-
-# def display_data_analysis():
-#     st.header("🔍 Statystyki oczyszczonych danych")
-    
-#     df = pd.read_csv('../2_clean_data/results/otodom_houses_cleaned.csv', delimiter=';')
-    
-#     st.write("### Podstawowe statystyki:")
-#     st.write(df.describe())
-    
-#     st.write("### Przykładowe dane:")
-#     st.dataframe(df.head(10))
-
 page = st.sidebar.radio(
     "Nawigacja",
     ("Predykcja ceny", "Statystyki trenowania modelu", "Statystyki danych wejściowych")
