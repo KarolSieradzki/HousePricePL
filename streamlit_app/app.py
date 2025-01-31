@@ -5,6 +5,7 @@ import joblib
 import json
 from util_functions.functions import *
 from util_functions.form import *
+from util_functions.analysis import display_data_analysis
 from pathlib import Path
 from PIL import Image
 
@@ -30,16 +31,16 @@ def display_training_stats():
    
 
 
-def display_data_analysis():
-    st.header("🔍 Statystyki oczyszczonych danych")
+# def display_data_analysis():
+#     st.header("🔍 Statystyki oczyszczonych danych")
     
-    df = pd.read_csv('../2_clean_data/results/otodom_houses_cleaned.csv', delimiter=';')
+#     df = pd.read_csv('../2_clean_data/results/otodom_houses_cleaned.csv', delimiter=';')
     
-    st.write("### Podstawowe statystyki:")
-    st.write(df.describe())
+#     st.write("### Podstawowe statystyki:")
+#     st.write(df.describe())
     
-    st.write("### Przykładowe dane:")
-    st.dataframe(df.head(10))
+#     st.write("### Przykładowe dane:")
+#     st.dataframe(df.head(10))
 
 page = st.sidebar.radio(
     "Nawigacja",
