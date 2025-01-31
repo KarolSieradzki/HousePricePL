@@ -1,0 +1,54 @@
+{
+    "Linear Regression": {
+        "model": "LinearRegression",
+        "params": {}
+    },
+    "Lasso Regression": {
+        "model": "Lasso",
+        "params": {"alpha": 0.1}
+    },
+    "Ridge Regression": {
+        "model": "Ridge",
+        "params": {"alpha": 1}
+    },
+    "ElasticNet": {
+        "model": "ElasticNet",
+        "params": {"alpha": 0.1, "l1_ratio": 0.5}
+    },
+    "Random Forest": {
+        "model": "RandomForestRegressor",
+        "params": {"n_estimators": 500, "max_depth": 10, "min_samples_leaf": 5, "random_state": 42}
+    },
+    "Gradient Boosting": {
+        "model": "GradientBoostingRegressor",
+        "params": {"n_estimators": 1000, "learning_rate": 0.01, "max_depth": 5, "random_state": 42}
+    },
+    "HistGradientBoosting": {
+        "model": "HistGradientBoostingRegressor",
+        "params": {"max_iter": 500, "learning_rate": 0.05, "max_depth": 6, "random_state": 42}
+    },
+    "XGBoost": {
+        "model": "XGBRegressor",
+        "params": {"n_estimators": 1000, "learning_rate": 0.01, "max_depth": 8, "random_state": 42}
+    },
+    "LightGBM": {
+        "model": "LGBMRegressor",
+        "params": {"n_estimators": 1000, "learning_rate": 0.01, "num_leaves": 40, "max_depth": 6, "random_state": 42, "verbose": -1}
+    },
+    "CatBoost": {
+        "model": "CatBoostRegressor",
+        "params": {"iterations": 1000, "learning_rate": 0.01, "depth": 6, "verbose": 0, "random_state": 42}
+    },
+    "SVR": {
+        "model": "SVR",
+        "params": {"kernel": "rbf", "C": 10, "gamma": "scale"}
+    },
+    "K-Neighbors": {
+        "model": "KNeighborsRegressor",
+        "params": {"n_neighbors": 5}
+    },
+    "MLPRegressor": {
+        "model": "MLPRegressor",
+        "params": {"hidden_layer_sizes": [100, 100], "max_iter": 1000, "alpha": 0.001, "random_state": 42}
+    }
+}
