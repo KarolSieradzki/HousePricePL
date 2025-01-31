@@ -15,6 +15,7 @@ This project is structured into several key folders, each responsible for a spec
 │   │   ├── settings.py           # Configuration for Scrapy settings.
 │   └── results
 │       └── otodom_houses.json    # JSON file with the scraped data.
+
 2_clean_data
 ├── cleaning
 │   ├── basic_cleaning.py         # Functions to handle basic data cleaning (e.g., handling missing values).
@@ -22,7 +23,9 @@ This project is structured into several key folders, each responsible for a spec
 │   ├── encoding.py               # Encoding categorical variables.
 │   ├── io.py                     # I/O operations for loading and saving data.
 │   ├── statistics.py             # Basic statistics for data analysis.
-│   └── main.py                   # Main script to run the cleaning pipeline.
+├── results
+│   └── otodom_houses_cleaned.csv # Cleaned data output.
+└── main.py                       # Main script to run the cleaning pipeline.
 3_train
 ├── best_results
 │   ├── HistGradientBoosting.pkl  # Best-performing model saved as a pickle file.
@@ -32,6 +35,7 @@ This project is structured into several key folders, each responsible for a spec
 │   ├── rmse_comparison.png       # Root Mean Square Error comparison across models.
 │   ├── actual_vs_predicted.png   # Visualization of actual vs. predicted prices.
 ├── main.py                       # Main script for training models.
+
 4_streamlit_app
 ├── app.py                        # Streamlit app for user interaction and prediction.
 ├── util_functions                # Utility functions used in the app.
