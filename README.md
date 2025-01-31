@@ -1,5 +1,13 @@
 # HousePricePL: Predicting Real Estate Prices in Poland
 
+
+## Project Overview  
+This project provides a comprehensive set of scripts for collecting real estate data from the Otodom website, cleaning and preprocessing the data, and training machine learning models to predict property prices.
+
+Additionally, it includes an interactive **Streamlit application** that allows users to explore data, visualize model performance, and make property price predictions.  
+You can access the live application here: [HousePricePL Streamlit App](https://housepricepl.streamlit.app/)
+
+
 ## Project Structure Overview
 This project is structured into several key folders, each responsible for a specific stage in the real estate price prediction pipeline. Below is a breakdown of the structure:
 
