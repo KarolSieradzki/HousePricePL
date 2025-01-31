@@ -34,7 +34,12 @@ This project is structured into several key folders, each responsible for a spec
 │   ├── mae_comparison.png        # Mean Absolute Error comparison across models.
 │   ├── rmse_comparison.png       # Root Mean Square Error comparison across models.
 │   ├── actual_vs_predicted.png   # Visualization of actual vs. predicted prices.
-├── main.py                       # Main script for training models.
+│   └── results.json              # JSON file summarizing training results.
+├── results
+│   ├── t1, t2, t3...             # Subfolders containing individual training runs.
+│   │   ├── models                # Saved models, scalers, and result metrics.
+│   │   └── visualizations        # Training-related visual outputs (e.g., error plots).
+└── main.py                       # Main script for training models.
 
 4_streamlit_app
 ├── app.py                        # Streamlit app for user interaction and prediction.
