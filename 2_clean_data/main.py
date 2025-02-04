@@ -78,10 +78,8 @@ def main():
     otodom_houses["Area_to_rooms_ratio"] = otodom_houses["Land area"] / otodom_houses["Rooms count"]
 
 
-    # Wyświetlanie statystyk
     dataframe_statistics(otodom_houses, exclude_columns=[])
 
-    # Zapisanie wyników do CSV
     save_to_csv(otodom_houses, file_paths=[
         'results/otodom_houses_cleaned.csv'
     ])
