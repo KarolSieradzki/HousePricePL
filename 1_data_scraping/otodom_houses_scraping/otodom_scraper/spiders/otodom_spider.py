@@ -20,9 +20,7 @@ from selenium.webdriver.remote.remote_connection import LOGGER
 LOGGER.setLevel(logging.WARNING)
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-# 
-# TU DODAJ KOMENTARZ JAK DZIAŁA CAŁY PROCES SCRAPOWANIA
-# 
+
 class OtodomSpider(scrapy.Spider):
     name = 'otodom_spider'
     start_urls = ['https://www.otodom.pl/pl/wyniki/sprzedaz/dom/cala-polska?ownerTypeSingleSelect=ALL&viewType=listing&by=LATEST&direction=DESC&limit=72&page=1']
@@ -99,8 +97,11 @@ class OtodomSpider(scrapy.Spider):
 
         print(f"Pobrano dane dla: {property_data['link']}, Latitude: {lat}, Longitude: {long}")
 
-        self.properities.append(property_data)
-        self.save_links_to_json()
+        if lat == "Brak informacji" or long == "Brak informacji":
+            print("Brak informacji o położeniu, oferta nie zostanie zapisana")
+        else:
+            self.properities.append(property_data)
+            self.save_links_to_json()
 
     def get_property_details(self, response):
         details = self.get_static_details(response)
