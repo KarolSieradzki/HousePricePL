@@ -140,7 +140,7 @@ To run this project, you will need:
 4. **Run the Streamlit App:**
    ```bash
    cd ../
-   streamlit run streamlit_app/app.py
+   streamlit run streamlit_app/aprice_prediction.py
    ```
 
 ## **Dashboard Overview:**
