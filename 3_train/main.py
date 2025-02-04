@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import joblib
 import seaborn as sns
 from datetime import datetime
+from sklearn.inspection import permutation_importance
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, HistGradientBoostingRegressor
@@ -30,6 +31,16 @@ def save_plot(plt, path):
     plt.savefig(path, format='png', dpi=300)
     plt.close()
 
+
+# convert float32 -> float
+def convert_np_types(obj):
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, np.float32) or isinstance(obj, np.float64):
+        return float(obj)
+    elif isinstance(obj, np.int32) or isinstance(obj, np.int64):
+        return int(obj)
+    return obj
 
 df = pd.read_csv('../2_clean_data/results/otodom_houses_cleaned.csv', delimiter=';')
 
@@ -77,6 +88,18 @@ for name, model in models.items():
     mae = mean_absolute_error(y_test, y_pred)
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2 = r2_score(y_test, y_pred)
+
+
+    if hasattr(model, "feature_importances_"):
+        importances = model.feature_importances_
+    else:
+        result = permutation_importance(model, X_test_scaled, y_test, n_repeats=5, random_state=42, n_jobs=-1)
+        importances = result.importances_mean
+
+    feature_importance_results = {
+        "features": list(X_test.columns),
+        "importances": list(importances)
+    }
     
     results.append({"Model": name, "MAE": mae, "RMSE": rmse, "R2": r2})
     print(f"{name} - MAE: {mae:.2f} | RMSE: {rmse:.2f} | R²: {r2:.3f}")
@@ -85,12 +108,17 @@ for name, model in models.items():
     joblib.dump(model, model_path)
     print(f"Model {name} saved to {model_path}")
 
+    feature_importance_path = os.path.join(models_folder, f"{name.replace(' ', '_')}_future_importances.json")
+    with open(feature_importance_path, 'w') as f:
+        json.dump(feature_importance_results, f, indent=4, default=convert_np_types)
+    print(f"Future importances for {name} saved to {feature_importance_path}")
+
+
+
 # save results of experiment to json
 results_path = os.path.join(experiment_folder, "results.json")
 with open(results_path, 'w') as f:
     json.dump(results, f, indent=4)
-
-
 
 
 # plot best model prediction result
