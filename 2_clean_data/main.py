@@ -7,6 +7,8 @@ from cleaning.statistics import dataframe_statistics
 def main():
     otodom_houses = read_json_to_df('../1_data_scraping/results/otodom_houses.json')
 
+    print("offers count: ", otodom_houses.shape[0])
+
     # rename columns
     column_mapping = {
         "Rok budowy": "Year of construction",
@@ -68,8 +70,8 @@ def main():
     otodom_houses = otodom_houses.loc[:, ~otodom_houses.columns.duplicated()]
 
     # remove outliers
-    upper_limit = otodom_houses['Price'].quantile(0.98)
-    lower_limit = otodom_houses['Price'].quantile(0.02)
+    upper_limit = otodom_houses['Price'].quantile(0.99)
+    lower_limit = otodom_houses['Price'].quantile(0.01)
     otodom_houses = otodom_houses[(otodom_houses['Price'] >= lower_limit) & (otodom_houses['Price'] <= upper_limit)]
 
     # add new features
@@ -79,6 +81,8 @@ def main():
 
 
     dataframe_statistics(otodom_houses, exclude_columns=[])
+
+    print("cleaned offers count: ", otodom_houses.shape[0])
 
     save_to_csv(otodom_houses, file_paths=[
         'results/otodom_houses_cleaned.csv'
